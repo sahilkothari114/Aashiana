@@ -1,5 +1,7 @@
 package com.aashiana;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.hibernate.HibernateException;
@@ -85,13 +87,21 @@ public class aashianaTest {
 		booking.setUser(user);
 		booking.setBookingTime(new Date());
 			
-/*		Duration duration=new Duration();
-	
-		duration.setFrom(new Date());
-		duration.setTo(new Date());
-	    booking.setDuration(duration);
-		booking.setDurationFrom(new Date());
-		booking.setDurationTo(new Date()); */
+		Duration duration = new Duration();
+
+		try {
+			SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
+			Date from;
+			from = ft.parse("2017-06-15");
+			duration.setBookingfrom(from);
+			Date to  = ft.parse("2018-06-15");
+			duration.setBookingto(to);
+			booking.setDuration(duration);
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
 		
 		rooms.setBooking(booking);
 		user.setBooking(booking);

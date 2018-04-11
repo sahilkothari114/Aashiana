@@ -8,32 +8,24 @@ import javax.persistence.*;
 public class Booking {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int bookingId;
-	
 	@OneToMany
 	private Collection<Room> bookedRoomList = new ArrayList<Room>();
-	
 	@OneToOne
 	@JoinColumn(name="userId")
 	private User user;
-	
 	private int amount;
 	private PaymentStatus  paymentStatus;
 	@Temporal (TemporalType.DATE)
 	private Date bookingTime;
-	private Date durationFrom;
-	private Date durationTo;
+	@Embedded
+	private Duration duration;
+	
 
-public Date getDurationFrom() {
-		return durationFrom;
+public Duration getDuration() {
+		return duration;
 	}
-	public void setDurationFrom(Date durationFrom) {
-		this.durationFrom = durationFrom;
-	}
-	public Date getDurationTo() {
-		return durationTo;
-	}
-	public void setDurationTo(Date durationTo) {
-		this.durationTo = durationTo;
+	public void setDuration(Duration duration) {
+		this.duration = duration;
 	}
 public Date getBookingTime() {
 		return bookingTime;
@@ -41,14 +33,7 @@ public Date getBookingTime() {
 	public void setBookingTime(Date bookingTime) {
 		this.bookingTime = bookingTime;
 	}
-		@Embedded
-	private Duration duration;
-	public Duration getDuration() {
-		return duration;
-	}
-	public void setDuration(Duration duration) {
-		this.duration = duration;
-	}
+
 	public int getBookingId() {
 		return bookingId;
 	}

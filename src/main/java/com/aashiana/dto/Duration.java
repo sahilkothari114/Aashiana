@@ -9,22 +9,27 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 @Embeddable
 public class Duration {
-	@Temporal (TemporalType.DATE)
-	private Date from;
-	@Temporal (TemporalType.DATE)
-	private Date to;
 	
-	public Date getFrom() {
-		return from;
+	private Date Bookingfrom;
+	
+	private Date Bookingto;
+
+	public Date getBookingfrom() {
+		return Bookingfrom;
 	}
-	public void setFrom(Date from) {
-		this.from = from;
+
+	public void setBookingfrom(Date bookingfrom) {
+		Bookingfrom = bookingfrom;
 	}
-	public Date getTo() {
-		return to;
+
+	public Date getBookingto() {
+		return Bookingto;
 	}
-	public void setTo(Date to) {
-		this.to = to;
+
+	public void setBookingto(Date bookingto) {
+		Bookingto = bookingto;
 	}
+	
+	
 	
 }
