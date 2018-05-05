@@ -1,0 +1,13 @@
+package com.aashiana.dao;
+
+import java.io.Serializable;
+import java.util.List;
+
+public interface DAOInterface<T, Id extends Serializable> {
+	public void persist(T entity);
+	public void update(T entity);
+	public T findById(Id id);
+	public void delete(T entity);
+	public List<T> findAll(Id id);
+	public void deleteAll(Id id);
+}

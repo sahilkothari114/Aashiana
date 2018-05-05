@@ -2,6 +2,7 @@ package com.aashiana.dto;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,18 +15,26 @@ import javax.persistence.TemporalType;
 public class User {
 	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	@Column
 	private int userId;
+	@Column
 	private String firstName;
+	@Column
 	private String lastName;
-	@Temporal (TemporalType.DATE)
+	@Temporal (TemporalType.DATE) @Column
 	private Date dateOfBirth;
+	@Column
 	private String mobileNumber;
+	@Column
 	private String emailAddress;
+	@Column
 	private String sex;
+	@Column
 	private String aadharNumber;
+	@Column
 	private String city;
 	
-	@OneToOne(mappedBy="user")
+	@OneToOne(mappedBy="user") 
 	private Booking booking;
 	
 	

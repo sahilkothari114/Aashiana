@@ -17,11 +17,11 @@ public class Duration {
 	public Date getBookingfrom() {
 		return Bookingfrom;
 	}
-
+	
 	public void setBookingfrom(Date bookingfrom) {
 		Bookingfrom = bookingfrom;
 	}
-
+	
 	public Date getBookingto() {
 		return Bookingto;
 	}
@@ -29,7 +29,5 @@ public class Duration {
 	public void setBookingto(Date bookingto) {
 		Bookingto = bookingto;
 	}
-	
-	
-	
+
 }
