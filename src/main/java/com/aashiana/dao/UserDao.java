@@ -36,7 +36,4 @@ public class UserDao extends HibernateUtil implements DAOInterface<User, String>
 		// TODO Auto-generated method stub
 		
 	}
-
-
-
 }

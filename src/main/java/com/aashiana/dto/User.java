@@ -14,6 +14,20 @@ import javax.persistence.TemporalType;
 @Entity
 public class User {
 	
+	public User(String firstName, String lastName, Date dateOfBirth, String mobileNumber,
+			String emailAddress, String sex, String aadharNumber, String city) {
+		super();
+		
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+		this.mobileNumber = mobileNumber;
+		this.emailAddress = emailAddress;
+		this.sex = sex;
+		this.aadharNumber = aadharNumber;
+		this.city = city;
+		this.booking = booking;
+	}
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	@Column
 	private int userId;

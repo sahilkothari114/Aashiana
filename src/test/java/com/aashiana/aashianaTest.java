@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import com.aashiana.dao.UserDao;
 import com.aashiana.dto.Address;
 import com.aashiana.dto.Booking;
 import com.aashiana.dto.Duration;
@@ -19,25 +20,17 @@ import com.aashiana.dto.Room;
 import com.aashiana.dto.RoomStatus;
 import com.aashiana.dto.RoomType;
 import com.aashiana.dto.User;
+import com.aashiana.service.UserService;
 
 public class aashianaTest {
 
 	public static void main(String[] args) {
-		User user = new User();
-		user.setFirstName("jon");
-		user.setLastName("targerion");
-		user.setEmailAddress("jonsnow@ironthrone.com");
-		user.setMobileNumber("9975754433");
-		user.setDateOfBirth(new Date());
-				
-/*		//to fetch and display data from the db
-		session = sessionFactory.openSession();
-		session.beginTransaction();
-		user = session.get(User.class, 2);
-		System.out.println(user.getFirstName()+" "+user.getLastName());
-		*/
+		UserService userService = new UserService();
+		User user = new User( "sahil", "Kothari",new Date(), "9974749717", "test@test.com", "male", "12345678990", "Ahmedabad");
+		userService.persist(user);
 		
 		
+/*		
 		//Testing hotel and room
 		Hotel hotel = new Hotel();
 		hotel.setHotelName("Name Of hotel");
@@ -54,8 +47,7 @@ public class aashianaTest {
 		rooms2.setRoomType(RoomType.SINGLE);
 		rooms2.setHotel(hotel);
 		hotel.getroomList().add(rooms);  //for the mapping
-		hotel.getroomList().add(rooms2);
-		
+		hotel.getroomList().add(rooms2);		
 		hotel.setRating(3);
 		
 		Address address = new Address();
@@ -78,16 +70,15 @@ public class aashianaTest {
 		facility2.getHotelList().add(hotel);
 		
 		
-
-
 		Booking booking  = new Booking();
 		booking.getBookedRoomList().add(rooms);
 		booking.setAmount(5000);
 		booking.setPaymentStatus(PaymentStatus.PAID);		
 		booking.setUser(user);
 		booking.setBookingTime(new Date());
-			
 		Duration duration = new Duration();
+
+
 
 		try {
 			SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
@@ -105,8 +96,10 @@ public class aashianaTest {
 		
 		rooms.setBooking(booking);
 		user.setBooking(booking);
+
+*/
 		
-		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+/*		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		
 		try {
@@ -130,7 +123,11 @@ public class aashianaTest {
 			session.close();
 		}
 			
+		*/
+		
+		
 		}
+		
 
 	}
 
